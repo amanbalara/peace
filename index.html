@@ -1,128 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Madhav Sir!</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Oops! My Bad 😅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
 <style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(120deg, #f6d365, #fda085);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    color: #fff;
-    text-align: center;
+  :root{
+    --bg1:#0f0c29; --bg2:#302b63; --bg3:#24243e;
+    --card:#101827;
+    --accent:#ffea7a; /* sunny */
+    --accent2:#9dffea; /* mint */
+    --accent3:#ff9bd1; /* pink */
   }
-  h1 {
-    font-size: 3.5em;
-    margin: 0.2em 0;
-    text-shadow: 2px 2px 10px #ff6f61;
-    cursor: pointer;
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; display:grid; place-items:center; overflow:hidden; color:#fff;
+    background: radial-gradient(1200px 800px at -10% -20%, #2a1f72 0%, transparent 60%),
+                radial-gradient(900px 600px at 110% 0%, #1e326b 0%, transparent 60%),
+                linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+    font-family: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   }
-  p {
-    font-size: 1.3em;
-    margin: 0.2em 0;
+  /* playful floating blobs */
+  .blob{position:fixed; filter:blur(28px); opacity:.55; mix-blend-mode:screen; z-index:0}
+  .b1{width:420px; height:420px; background:radial-gradient(circle at 30% 30%, var(--accent) 0%, transparent 60%); left:-120px; top:-100px; animation:float1 10s ease-in-out infinite}
+  .b2{width:420px; height:420px; background:radial-gradient(circle at 70% 70%, var(--accent2) 0%, transparent 60%); right:-140px; bottom:-120px; animation:float2 12s ease-in-out infinite}
+  .b3{width:380px; height:380px; background:radial-gradient(circle at 50% 50%, var(--accent3) 0%, transparent 60%); left:50%; top:70%; transform:translateX(-50%); animation:float3 14s ease-in-out infinite}
+  @keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(20px)}}
+  @keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+  @keyframes float3{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-16px)}}
+
+  .card{
+    position:relative; z-index:1; width:min(92vw, 520px);
+    background: rgba(16,24,39,.75);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:28px; padding:26px 22px 24px; text-align:center;
+    box-shadow: 0 20px 70px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.06);
+    backdrop-filter: blur(14px);
   }
-  .wish {
-    font-size: 1.1em;
-    margin-top: 20px;
-    font-style: italic;
+  .sticker{
+    display:inline-grid; place-items:center; margin:-54px auto 10px; padding:10px 18px;
+    background: conic-gradient(from 180deg, #fff7b2, #ffd0f0, #b7fff6, #fff7b2);
+    color:#111; font-family:'Quicksand', sans-serif; font-weight:800; font-size:16px;
+    border-radius:999px; border:3px dashed rgba(0,0,0,.25);
+    transform: rotate(-6deg);
+    box-shadow: 0 12px 30px rgba(0,0,0,.35);
   }
-  button {
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: #4d79ff;
-    color: white;
-    transition: 0.3s;
+  h1{
+    margin:6px 0 2px; font-size: clamp(24px, 4.8vw, 34px); font-weight:800; letter-spacing:.2px;
   }
-  button:hover {
-    background-color: #1a53ff;
+  .sub{margin:0 0 12px; color:#cfe3ff; font-size:14px; opacity:.9}
+
+  .bubble{
+    position:relative; margin:14px auto; padding:14px 16px; max-width:440px;
+    background:#12213b; border:1px solid rgba(255,255,255,.12); border-radius:18px;
+    text-align:left; line-height:1.5; font-size:15.5px;
   }
-  .balloon {
-    position: absolute;
-    width: 50px;
-    height: 70px;
-    background: red;
-    border-radius: 50% 50% 50% 50%;
-    animation: float 5s infinite ease-in;
+  .bubble::after{
+    content:""; position:absolute; left:18px; top:-10px; width:18px; height:18px; background:#12213b;
+    transform:rotate(45deg); border-left:1px solid rgba(255,255,255,.12); border-top:1px solid rgba(255,255,255,.12);
   }
-  @keyframes float {
-    0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
-    50% { opacity: 0.7; }
-    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+  .line{display:flex; gap:10px; align-items:flex-start; margin:8px 0}
+  .dot{width:10px; height:10px; border-radius:50%; margin-top:6px; background:var(--accent)}
+  .text{flex:1}
+
+  .mini{
+    margin-top:12px; font-size:12.5px; color:#b8c8ff; opacity:.95
   }
-  .confetti {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: yellow;
-    animation: confetti-fall 3s linear forwards;
+  .row{display:flex; gap:10px; justify-content:center; margin-top:14px}
+  .btn{
+    appearance:none; border:none; cursor:pointer; font-weight:800; letter-spacing:.3px;
+    padding:10px 14px; border-radius:14px; transition:.18s transform ease;
   }
-  @keyframes confetti-fall {
-    0% {transform: translateY(0) rotate(0deg);}
-    100% {transform: translateY(500px) rotate(360deg); opacity:0;}
-  }
+  .btn:hover{ transform: translateY(-2px) rotate(-1deg); }
+  .ok{ background:#c7ffb0; color:#192a23; }
+  .alt{ background:#ffe0f2; color:#3a2034; }
+
+  .emoji-squad{font-size:22px; margin:10px 0 4px; animation:bounce 1.6s ease-in-out infinite}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+  footer{margin-top:8px; font-size:12px; color:#b0c2ff; opacity:.9}
 </style>
 </head>
 <body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
 
-<h1 id="title">🎉 Happy Birthday Madhav Sir! 🎉</h1>
-<p>Click the title or button below for a small celebration!</p>
+  <main class="card">
+    <div class="sticker">100% Misunderstanding ✅</div>
+    <h1>Hey Mohita — sorry, my bad! 😅</h1>
+    <p class="sub">translation: brain lag + autocorrect chaos</p>
 
-<button id="spinCake">🎂 Spin Cake!</button>
+    <div class="bubble">
+      <div class="line"><span class="dot"></span><div class="text">I messed up the wording. I’ll improve my language skills.</div></div>
+      <div class="line"><span class="dot"></span><div class="text">I meant <strong>random chitchat in general</strong> — <em>not our chats</em>.</div></div>
+      <div class="line"><span class="dot"></span><div class="text">And “quiet” = <strong>silence</strong>. That’s it.</div></div>
+    </div>
 
-<p class="wish">Wishes from one of your juniors, Aman.</p>
+    <div class="emoji-squad">🙏🙂📚✨</div>
 
-<script>
-  // Floating balloons
-  const colors = ['#ff4d4d','#ff66b2','#ffdb4d','#4dff4d','#4d94ff'];
-  for(let i=0;i<20;i++){
-    const balloon = document.createElement('div');
-    balloon.classList.add('balloon');
-    balloon.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
-    balloon.style.left = Math.random() * window.innerWidth + 'px';
-    balloon.style.animationDuration = 3 + Math.random()*5 + 's';
-    document.body.appendChild(balloon);
-  }
+    <div class="row">
+      <button class="btn ok">Peace?</button>
+      <button class="btn alt">Let’s reset ▶</button>
+    </div>
 
-  // Confetti on title click
-  const title = document.getElementById('title');
-  title.addEventListener('click',()=>{
-    for(let i=0;i<50;i++){
-      const confetti = document.createElement('div');
-      confetti.classList.add('confetti');
-      confetti.style.left = Math.random()*window.innerWidth + 'px';
-      confetti.style.backgroundColor = colors[Math.floor(Math.random()*colors.length)];
-      confetti.style.animationDuration = 1+Math.random()*2+'s';
-      document.body.appendChild(confetti);
-      setTimeout(()=>confetti.remove(),3000);
-    }
-  });
-
-  // Spinning cake animation
-  const spinCakeBtn = document.getElementById('spinCake');
-  spinCakeBtn.addEventListener('click',()=>{
-    const cake = document.createElement('div');
-    cake.innerHTML = '🎂';
-    cake.style.position = 'absolute';
-    cake.style.fontSize = '4em';
-    cake.style.left = Math.random()*(window.innerWidth-50)+'px';
-    cake.style.top = Math.random()*(window.innerHeight-50)+'px';
-    cake.style.transition = 'transform 2s';
-    document.body.appendChild(cake);
-    setTimeout(()=>{cake.style.transform = 'rotate(720deg)';},100);
-    setTimeout(()=>cake.remove(),2500);
-  });
-</script>
-
+    <p class="mini">I care about your feelings and want us good again.</p>
+    <footer>— Aman (with a tiny nudge from Neo)</footer>
+  </main>
 </body>
 </html>
